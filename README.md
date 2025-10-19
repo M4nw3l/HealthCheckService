@@ -4,11 +4,13 @@ Provides metrics and standard health, readiness and liveness probes.
 Simplifies implementing RollingUpdate Deplyoment/Statefulset update strategies with minimal downtime, pods surge updating, disruption budgeting and enables Kubernetes self healing functionality.
 
 **Features**
+
 **Application**
 - Monitors a configrable list of health probes and metrics over http.
 - Scrapes multiple endpoints for multiple applications in parallel.
   - Individual per probe update/scraping intervals
 - SignalR updates to frontend for live health probe statuses and metrics to be shown dynamically.
+
 **Telemetry Library**
 - Uses independent Kestral request handling pipelines separating health probe and metrics calls from application.
   - Health probes and metrics may be served from a single combined port or separate ports for each. 
@@ -221,5 +223,6 @@ Similarly for alerting, the most obvious naive solution is to add an SMTP Client
 Alerts being pertinent and specific however makes this solution non ideal, as it all it can really say is that either the application is currently degraded or has stopped working entirely. Leaving the why up to someone to investigate upon being notified of the problem. 
 
 Another alternative ties into using the Prometheus and Grafana support covered above for which the telemetry library was created somewhat with this use case also in mind. With a working configuration, alerts based on detailed information, from meters within the application or microservice, can be setup in Grafana. Then sent to alerting groups of users once a customisable set of definable conditions are triggered.
+
 
 Currently, the application would need both a storage mechanism and the ability to be able to understand metrics data from applications to be able to implement similar features. 
