@@ -56,8 +56,9 @@ A helm chart is provided for installation to a kubernetes cluster in the `./helm
 
 **Requirements**
 - Docker / Docker Desktop [Installation](https://www.docker.com/products/docker-desktop)
--  Helm [Installation](https://helm.sh/docs/intro/install/) 
-  - Recommended installation method: Homebrew
+-  Helm [Installation](https://helm.sh/docs/intro/install/)
+    - Recommended installation method: Homebrew
+
 - A kubernetes cluster context with namespace, deployment, service create/modify/delete permissions
   - Confirm the cluster you will install to with `kubectl get pods -A` beforehand!
 - A docker repository to push the container image to.
@@ -213,7 +214,7 @@ Docker image can also be built in Solution with Microsoft.VisualStudio.Azure.Con
 
 The Telemetry library uses [OpenTelemtry Metrics](https://opentelemetry.io/docs/specs/otel/metrics/) to provide metrics counters, guages and histgograms of application / service observability information granularly. Prometheus is compatible with scraping these metrics so in an appropriate configuration Grafana dashboards would be able to be created based on these metrics too.
 
-While the health probes and metrics scraping applicaiton while could be extended to do the same it would take significant development work to reach the same level of functionality as Grafana provides out the box.
+While the health probes and metrics scraping applicaiton could be extended to do the same it would take significant development work to reach the same level of functionality as Grafana provides out the box.
 
 An installation of [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) or [k8s-monitoring-helm](https://github.com/grafana/k8s-monitoring-helm) and a named service port / container port scraping configuration would suffice for a mechanism facilitating automatic metrics detection and scraping into Prometheus. Making the metrics then available in Grafana where dashboard visualisations of the metrics over time can be created. 
 
@@ -226,3 +227,4 @@ Another alternative ties into using the Prometheus and Grafana support covered a
 
 
 Currently, the application would need both a storage mechanism and the ability to be able to understand metrics data from applications to be able to implement similar features. 
+
