@@ -208,6 +208,8 @@ containers:
 
 Docker image can also be built in Solution with Microsoft.VisualStudio.Azure.Containers.Tools.Targets, right click Dockerfile in HealthCheckService project, click "Build Docker Image".
 
+To run and edit the project either use Visual Studio 2022 to open the solution / it can be run both inside and outside a container. Or with VSCode, use `docker bake` in a terminal in the repository root to build your changes. `docker compose up` can be used to run in a two instance testing configuration that health check each other.
+
 ## Extending
 
 ### Prometheus / Grafana
@@ -227,4 +229,5 @@ Another alternative ties into using the Prometheus and Grafana support covered a
 
 
 Currently, the application would need both a storage mechanism and the ability to be able to understand metrics data from applications to be able to implement similar features. 
+
 
