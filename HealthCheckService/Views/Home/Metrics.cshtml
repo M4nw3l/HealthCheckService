@@ -1,0 +1,9 @@
+﻿@model MetricsViewModel
+@{
+	ViewData["Title"] = "Metrics";
+}
+<div class="text-center">
+	<h1 class="display-4">Metrics - @Model.Endpoint.Key - @Model.Endpoint.Url</h1>
+	<hr />
+	<pre id="endpoint-metrics-@Model.Endpoint.Key" style="text-align:left; width:85vw; height:65vh;">@Model.Metrics</pre>
+</div>

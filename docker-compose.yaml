@@ -1,0 +1,29 @@
+x-healthcheckserviceimage: &healthcheckserviceimage healthcheckservice:${TAG:-latest}
+
+services:
+  healthcheckservice0:
+    image: *healthcheckserviceimage
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      Endpoints__HealthCheckService1__Url: "http://healthcheckservice0:9090"
+      Endpoints__HealthCheckService2__Url: "http://healthcheckservice1:9090"
+    ports:
+      - 8080:8080
+      - 9090:9090
+    networks:
+    - default
+
+  healthcheckservice1: 
+    image: *healthcheckserviceimage
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      Endpoints__HealthCheckService1__Url: "http://healthcheckservice0:9090"
+      Endpoints__HealthCheckService2__Url: "http://healthcheckservice1:9090"
+    ports:
+      - 8081:8080
+      - 9091:9090
+    networks:
+    - default
+
+networks:
+  default:

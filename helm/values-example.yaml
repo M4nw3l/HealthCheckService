@@ -1,0 +1,7 @@
+healthPort: 9090
+
+env:
+- name: Endpoints__HealthCheckService0__Url
+  value: "http://healthcheckservice0.monitoring:9090"
+- name: Endpoints__HealthCheckService1__Url
+  value: "http://healthcheckservice1.monitoring:9090"
