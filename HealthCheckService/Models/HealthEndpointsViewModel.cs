@@ -36,7 +36,8 @@ public class HealthEndpointViewModel(HealthEndpointConfiguration config, HealthE
     {
         var timestamp = endpointResult?.Timestamp ?? DateTime.Now;
         var result = endpointResult?.Result;
-        var text = result?.Description ?? "Unknown";
+        var statusText = !result.HasValue ? null : Enum.GetName(typeof(HealthStatus), result!.Value.Status);
+        var text = result?.Description ?? statusText ?? "Unknown";
         if (!includeTimestamp)
             return text;
         return string.Format("{0} ({1:dd/MM/yyyy HH:mm:ss})",text , timestamp);
