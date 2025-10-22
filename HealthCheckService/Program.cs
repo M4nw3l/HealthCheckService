@@ -36,13 +36,9 @@ try
     var app = builder.Build();
     app.MapTelemetry();
     // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-    else
-        app.UseExceptionHandler("/Home/Error");
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.UseExceptionHandler("/Home/Error");
 
     app.UseStaticFiles();
 
